@@ -5,7 +5,9 @@ using namespace std;
 const int INF = 0x3f3f3f3f;
 void solve()
 {
-    
+    int a,b;
+    cin >> a >> b;
+    cout << 6-a-b << "\n";
 }
 int main()
 {
