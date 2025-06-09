@@ -5,22 +5,54 @@ using namespace std;
 const int INF = 0x3f3f3f3f;
 void solve()
 {
-    int n,m;
+    ll n,m;
     cin >> n >> m;
-    vector<ll> a,b,c;
-    ll aux;
+    vector<ll> a,b;
     for(int i=0;i<n;i++)
     {
-        cin >> aux;
+        ll aux; cin >> aux;
         a.push_back(aux);
     }
-    for(int j=0;j<m;j++)
+    for(int i=0;i<m;i++)
     {
-        cin >> aux;
+        ll aux; cin >> aux;
         b.push_back(aux);
     }
-    c = b;
-    so
+    for(int i=0,j=0;i<n;i++)
+    {
+        if(a[i]>=b[j]) j++;
+        if(j==m)
+        {
+            cout << "0\n";
+            return;
+        }
+    }
+    sort(b.begin(),b.end());
+    ll l=0,r=b.size()-1;
+    ll ans=INF;
+    while(l<=r)
+    {
+        ll mid = (l+r)/2;
+        ll j=0;
+        for(int i=0;i<n;i++)
+        {
+            if(mid==j)
+            {
+                j++;
+            }
+            if(a[i]>=b[j]) j++;
+            if(j>=m)
+            {
+                ans = min(ans,b[mid]);
+                break;
+            }
+        }
+        if(l==r) break;
+        else if(j<m) r=mid;
+        else l=mid+1;
+    }
+    if(ans==INF) cout << "-1\n";
+    else cout << ans << "\n";
 }
 int main()
 {
