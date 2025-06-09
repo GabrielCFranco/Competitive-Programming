@@ -2,26 +2,26 @@
 using namespace std;
 #define PB push_back
 #define ll long long
-#define rep(i, a, b) for(int i = a; i < (b); ++i)
-int ans=-1,x;
 void solve()
 {
     int n,m;
     cin >> n >> m;
-    vector<int> vn;
+    vector<int> a,b;
+    vector<bool> c;
     for(int i=0;i<n;i++)
     {
-        int aux;
-        cin >> aux;
-        vn.PB(aux);
+        int aux; cin >> aux;
+        a.push_back(aux);
+        c.push_back(true);
     }
-    sort(vn.begin(),vn.end());
     for(int i=0;i<m;i++)
     {
-        cin >> x;
-        ans=-1;
-        cout << ans << "\n";
+        int aux; cin >> aux;
+        b.push_back(aux);
     }
+    sort(a.begin(),a.end());
+    int l=0,r=a.size();
+    
 }
 int main()
 {
